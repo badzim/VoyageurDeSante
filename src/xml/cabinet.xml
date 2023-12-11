@@ -1,0 +1,154 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/XML/XMLDocument.xml to edit this template
+-->
+
+
+<vs:cabinet xmlns:vs="http://www.ujf-grenoble.fr/l3miage/medical"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema-instance" xs:schemaLocation="http://www.ujf-grenoble.fr/l3miage/medical ../xsd/cabinet.xsd">
+    <vs:nom>Soins à Grenbole</vs:nom>
+    <vs:adresse>
+        <vs:numéro>60</vs:numéro>
+        <vs:rue>rue de la chimie</vs:rue>
+        <vs:codePostal>38041</vs:codePostal>
+        <vs:ville>Grenoble
+        </vs:ville>
+    </vs:adresse>
+
+    <vs:infirmiers>
+        
+        
+        <vs:infirmier id="001">
+            <vs:nom>Fréchie</vs:nom>
+            <vs:prenom>Sarah</vs:prenom>
+            <vs:photo>sarah.png</vs:photo>
+        </vs:infirmier>
+        
+        
+        <vs:infirmier id="002">
+            <vs:nom>Stické</vs:nom>
+            <vs:prenom>Sophie</vs:prenom>
+            <vs:photo>sophie.png</vs:photo>
+        </vs:infirmier>
+        
+        
+        <vs:infirmier id="003">
+            <vs:nom>Ochon</vs:nom>
+            <vs:prenom>Paul</vs:prenom>
+            <vs:photo>paul.png</vs:photo>
+        </vs:infirmier>
+        
+        
+    </vs:infirmiers>
+
+    <vs:patients>
+        
+        
+        <vs:patient>
+            <vs:nom>Alécole</vs:nom>
+            <vs:prenom>Yvon</vs:prenom>
+            <vs:sexe>M</vs:sexe>
+            <vs:naissance>1998-08-22</vs:naissance>
+            <vs:numero>198082205545852</vs:numero>
+            <vs:adresse>
+                <vs:étage>6
+                </vs:étage>
+                <vs:numéro>50</vs:numéro>
+                <vs:rue>avenue Felixe Viallet</vs:rue>
+                <vs:ville>Grenoble</vs:ville>
+                <vs:codePostal>38031</vs:codePostal>
+            </vs:adresse>
+      
+                <vs:visite date="2015-12-08" intervenant="001">
+                    
+                        <vs:acte id="109"/>
+         
+                </vs:visite>
+
+        </vs:patient>
+        
+        
+        
+        <vs:patient>
+            <vs:nom>Orouge</vs:nom>
+            <vs:prenom>Elvire</vs:prenom>
+            <vs:sexe>F</vs:sexe>
+            <vs:naissance>1982-03-08</vs:naissance>
+            <vs:numero>2820338235251</vs:numero>
+            <vs:adresse>
+                <vs:étage>1</vs:étage>
+                <vs:numéro>2</vs:numéro>
+                <vs:rue>Rond-Point de la Croix de Vie</vs:rue>
+                <vs:ville>La Tronche</vs:ville>
+                <vs:codePostal>38700</vs:codePostal>
+            </vs:adresse>
+      
+                <vs:visite date="2015-12-08">
+                    
+                        <vs:acte id="300"></vs:acte>
+            
+                </vs:visite>
+          
+
+        </vs:patient>
+        
+        
+        
+        
+        <vs:patient>
+            <vs:nom>Pien</vs:nom>
+            <vs:prenom>Oscare</vs:prenom>
+            <vs:sexe>M</vs:sexe>
+            <vs:naissance>1975-03-25</vs:naissance>
+            <vs:numero>17503386569264
+            </vs:numero>
+            <vs:adresse>
+                <vs:étage>2</vs:étage>
+                <vs:numéro>3</vs:numéro>
+                <vs:rue>rue Casimir Brenier</vs:rue>
+                <vs:ville>Grenoble</vs:ville>
+                <vs:codePostal>38000</vs:codePostal>
+            </vs:adresse>
+           
+                <vs:visite date="2015-12-08">
+            
+                        <vs:acte id="104"></vs:acte>
+                        <vs:acte id="101"></vs:acte>
+                    
+                
+                </vs:visite>
+
+        </vs:patient>
+        
+        
+        
+        <vs:patient>
+            <vs:nom>Kapoëtla</vs:nom>
+            <vs:prenom>Xavier</vs:prenom>
+            <vs:sexe>M</vs:sexe>
+            <vs:naissance>2011-08-02</vs:naissance>
+            <vs:numero>1110838633571</vs:numero>
+            <vs:adresse>
+                <vs:étage>2</vs:étage>
+                <vs:numéro>25</vs:numéro>
+                <vs:rue>rue des Martyrs</vs:rue>
+                <vs:ville>Grenoble</vs:ville>
+                <vs:codePostal>38042</vs:codePostal>
+            </vs:adresse>
+            
+            
+                <vs:visite date="2015-12-08">
+              
+                        <vs:acte id="111"></vs:acte>
+    
+                </vs:visite>
+                
+               
+
+        </vs:patient>
+
+    </vs:patients>
+
+
+</vs:cabinet>

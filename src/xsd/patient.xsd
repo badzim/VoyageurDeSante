@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+
+<!--
+    Document   : cabinet.xsl
+    Created on : 28 novembre 2023, 19:45
+    Author     : Rahmani Imen & Badzi Amine
+    Description: Ce fichier corespond au xsd pour les fichiers patient.xml
+        
+-->
+
+<xs:schema version="1.0"
+            targetNamespace="http://www.ujf-grenoble.fr/l3miage/patient"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:pat="http://www.ujf-grenoble.fr/l3miage/patient"
+           elementFormDefault="qualified">
+
+    
+     <!--Définition de l'élément "patient"-->
+    <xs:element name="patient" type="pat:Patient"/>
+    
+        <!--Définition du type complexe "Patient"-->
+        <xs:complexType name="Patient">
+            <xs:sequence>
+                <xs:element name="nom" type="xs:string"/>
+                <xs:element name="prenom" type="xs:string"/>
+                <xs:element name="sexe" type="xs:string"/>
+                <xs:element name="naissance" type="xs:date"/> 
+                <xs:element name="numero" type="xs:string"/> 
+                <xs:element name="adresse" type="pat:AdressePatient"/>
+                <xs:element name="visite" type="pat:Visite"/>
+            </xs:sequence>
+        </xs:complexType>
+    
+    <!--Definition du type complexe "AdressePatient"-->
+    <xs:complexType name="AdressePatient">
+        <xs:sequence>
+            <xs:element name="numéro" type="xs:int" minOccurs="0"/>
+            <xs:element name="rue" type="xs:string"/>
+            <xs:element name="codePostal" type="pat:CodePostal"/>
+            <xs:element name="ville" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <!--Définition du type simple "CodePostal"--> 
+    <xs:simpleType name="CodePostal">
+        <xs:restriction base="xs:string">
+            <!-- Restriction sur le type de base "xs:string" avec un motif spécifique -->
+            <xs:pattern value="[0-9]{5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    
+    <!--Définition du type complexe "Visites"-->    
+    <xs:complexType name="Visite">
+        <xs:sequence>
+            <xs:element name="intervenant" type="pat:Intervenant"/>
+            <xs:element name="acte" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+        <!-- Attribut pour la "date" avec une contrainte requise -->
+        <xs:attribute name="date" type="xs:date" use="required"/>
+    </xs:complexType>
+                    
+    <!--Définition du type complexe "Intervenant"-->        
+    <xs:complexType name="Intervenant">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="prenom" type="xs:string"/>
+        </xs:sequence>
+    </xs:complexType>
+                       
+             
+</xs:schema>

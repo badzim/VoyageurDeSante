@@ -1,0 +1,184 @@
+<?xml version="1.0"?>
+
+<!--
+    Document   : cabinet.xsl
+    Created on : 20 novembre 2023, 13:45
+    Author     : Rahmani Imen & Badzi Amine
+    Description: Ce fichier corespond au xsd du cabinet
+        
+-->
+
+<xs:schema version="1.0"
+            targetNamespace="http://www.ujf-grenoble.fr/l3miage/medical"
+            xmlns:vs="http://www.ujf-grenoble.fr/l3miage/medical"
+            xmlns:xs="http://www.w3.org/2001/XMLSchema"
+            elementFormDefault="qualified">
+            
+    
+    <!--Définition de l'élément "cabinet"-->
+    <xs:element name="cabinet" type="vs:Cabinet"/>
+
+    <!--Définition du type "Cabinet"-->
+    <xs:complexType name="Cabinet">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="adresse" type="vs:AdresseCabinet"/>
+            <xs:element name="infirmiers" type="vs:Infirmiers"/>
+            <xs:element name="patients" type="vs:Patients"/>
+        </xs:sequence>
+
+    </xs:complexType>
+    
+    <!-- Definition du type AdresseCabinet -->
+    <xs:complexType name="AdresseCabinet">
+        <xs:sequence>
+            <xs:element name="numéro" type="xs:int" minOccurs="0"/>
+            <xs:element name="rue" type="xs:string"/>
+            <xs:element name="codePostal" type="vs:CodePostal"/>
+            <xs:element name="ville" type="xs:string"/>
+        </xs:sequence>
+
+    </xs:complexType>
+
+    <!-- Définition du type "CodePostal" -->
+    <xs:simpleType name="CodePostal">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-9]{5}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+
+
+
+
+    <!-- Definition du type Infirmiers -->
+
+    <xs:complexType name="Infirmiers">
+        
+        <xs:sequence>
+            <xs:element name="infirmier" type="vs:Infirmier"  maxOccurs="unbounded"/>
+        </xs:sequence>
+
+    </xs:complexType>
+
+
+
+
+    <!-- Définition du type "Infirmier" -->
+    <xs:complexType name="Infirmier">
+        <xs:sequence>
+            <xs:element name="nom" type="xs:string"/>
+            <xs:element name="prenom" type="xs:string"/>
+            <xs:element name="photo" type="vs:Photo"/>
+        </xs:sequence>
+        <!-- Contrainte sur l'attribut "id"-->
+        <xs:attribute name="id" type="xs:int" use="required"/>
+    </xs:complexType>
+
+
+
+
+    <!--Définition du type "photo"-->
+    <xs:simpleType name="Photo">
+            <!-- Contrainte sur le format du nom de fichier pour la photo -->
+            <xs:restriction base="xs:string">
+                <xs:pattern value=".*\.(png|jpg|jpeg)"/>
+            </xs:restriction>
+
+    </xs:simpleType>
+
+   
+    
+    
+    
+
+    <!-- Definition du type "Patients" -->
+    <xs:complexType name="Patients">
+        <xs:sequence>
+            <xs:element name="patient" type="vs:Patient" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    
+    
+    
+    <!-- Definition du type "Patient" -->
+    <xs:complexType name="Patient">
+        <xs:sequence>
+            <xs:element name="nom" type="vs:Nom"/>
+            <xs:element name="prenom" type="vs:Prenom"/>
+            <xs:element name="sexe" type="vs:Sexe"/>
+            <xs:element name="naissance" type="xs:date"/>
+            <xs:element name="numero" type="xs:string"/>
+            <xs:element name="adresse" type="vs:AdressePatient"/>
+            <xs:element name="visite" type="vs:Visite" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+
+    <!-- Définition du type "Nom" -->
+    <xs:simpleType name="Nom">
+        <!-- Contrainte sur la longueur du nom -->
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    
+    
+    
+    <!-- Définition du type "Prenom" -->
+    <xs:simpleType name="Prenom">
+        <!-- Contrainte sur la longueur du prénom -->
+        <xs:restriction base="xs:string">
+            <xs:maxLength value="50"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+
+     <!-- Définition du type "Sexe" -->
+    <xs:simpleType name="Sexe">
+        <!-- Contrainte sur les valeurs possibles du sexe -->
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="M"/>
+            <xs:enumeration value="F"/>
+        </xs:restriction>
+     </xs:simpleType>
+     
+     
+     
+     <!-- Définition du type "AdressePatient" -->
+     <xs:complexType name="AdressePatient">
+        <xs:sequence>
+            <xs:element name="étage" type="xs:int" minOccurs="1"/>
+            <xs:element name="numéro" type="xs:int" minOccurs="0"/>
+            <xs:element name="rue" type="xs:string"/>
+            <xs:element name="ville" type="xs:string"/>
+            <xs:element name="codePostal" type="vs:CodePostal"/>
+        </xs:sequence>
+
+    </xs:complexType>
+    
+    
+     <!-- Définition du type "Visite" -->
+     <xs:complexType name="Visite">
+         <xs:sequence>
+             <xs:element name="acte" type="vs:Acte" maxOccurs="unbounded"/>
+         </xs:sequence>
+         <!-- Attribut obligatoire pour une visite -->
+         <xs:attribute name="date" type="xs:date" use="required"/>
+         <xs:attribute name="intervenant" type="xs:string"/>
+     </xs:complexType>
+     
+
+     <!-- Définition du type "Acte" -->
+     <xs:complexType name="Acte">
+        <xs:attribute name="id" type="xs:string"/>
+    </xs:complexType>
+    
+
+    
+    
+</xs:schema>

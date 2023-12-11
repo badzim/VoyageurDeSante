@@ -1,0 +1,69 @@
+body{
+    background-color: #F1F1D3;
+}
+
+table{
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* Style pour les cellules du tableau */
+th, td{
+    border: 1px solid #7dc2a5;
+    text-align: left;
+    paddind : 8px;
+}
+
+/*Style pour les cellules de l'en-tête du tableau*/
+th{
+    background-color: c7ddc5;
+}
+
+/*Style pour les boutons de facture*/
+button{
+    
+  background-color: #9fcda8;
+  
+  color: white;
+  
+  border: none;
+  
+  padding: 8px 12px;
+  
+  text-align: center;
+  
+  text-decoration: none;
+  
+  display: inline-block;
+  
+  font-size: 14px;
+  
+  margin: 4px 2px;
+  
+  cursor: pointer;
+  
+  border-radius: 4px;
+  
+}
+
+/*Style pour le titre*/
+h1{
+    color: #9fcda8
+}
+
+/*Style pour les paragraphes*/
+p{
+    color: #666;
+}
+
+/*Style pour la liste*/
+ul{
+    margin: 15px;
+    padding: 2px;
+}
+
+/*Style pour les éléments de la liste à puces*/
+li{
+    margin-bottom: 5px;
+}
